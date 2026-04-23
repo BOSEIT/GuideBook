@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panduan Penggunaan Ascend HR - Premium Clear</title>
+    <style>
+        :root {
+            --bg-main: #f8fafc;
+            --bg-card: #ffffff;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --accent: #2563eb;
+            --accent-glow: rgba(37, 99, 235, 0.4);
+            --border-light: #e2e8f0;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 50px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .card-header {
+            border-bottom: 2px solid var(--bg-main);
+            padding-bottom: 15px;
+            margin-bottom: 10px;
+        }
+
+        .card-header h2 {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-dark);
+        }
+
+        .step-number {
+            background: var(--accent);
+            color: white;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1rem;
+            box-shadow: 0 4px 10px var(--accent-glow);
+        }
+
+        .content-split {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .image-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            min-width: 300px;
+        }
+
+        .text-section {
+            flex: 1.2;
+        }
+
+        /* TAMPILAN GAMBAR JERNIH TANPA SHADOW */
+        .img-wrapper {
+            position: relative; 
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+            background: #fff;
+        }
+
+        .img-wrapper img {
+            display: block;
+            width: 100%;
+            height: auto;
+            opacity: 0.95; 
+            transition: all 0.3s ease;
+        }
+
+        .img-wrapper:hover img {
+            opacity: 1;
+            transform: scale(1.01);
+        }
+
+        /* ==== ANIMASI HOTSPOT & GARIS PETUNJUK ==== */
+        .hotspot {
+            position: absolute;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+        }
+
+        .pulse-dot {
+            width: 14px;
+            height: 14px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            position: relative;
+            box-shadow: 0 0 0 0 var(--accent-glow);
+            animation: pulsing 2s infinite cubic-bezier(0.66, 0, 0, 1);
+        }
+
+        .pulse-dot::after {
+            content: '';
+            position: absolute;
+            width: 26px;
+            height: 26px;
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            top: -8px;
+            left: -8px;
+            animation: ripple 2s infinite ease-out;
+        }
+
+        .pointer-label {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid var(--border-light);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-left: 15px; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .pointer-label::before {
+            content: '';
+            position: absolute;
+            left: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 15px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+
+        @keyframes pulsing {
+            to { box-shadow: 0 0 0 15px rgba(37, 99, 235, 0); }
+        }
+
+        @keyframes ripple {
+            0% { transform: scale(0.5); opacity: 1; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+
+        /* ========================================== */
+
+        ul { list-style-type: none; padding-left: 0; margin: 0; }
+        li { margin-bottom: 20px; padding-left: 35px; position: relative; color: #475569; }
+        li::before {
+            content: ""; position: absolute; left: 0; top: 6px; width: 8px; height: 8px;
+            border-radius: 50%; background-color: var(--accent);
+            box-shadow: 0 0 0 4px var(--accent-glow);
+        }
+        strong { color: var(--text-dark); }
+        .tab-item {
+            background: #f8fafc; padding: 25px; border-radius: 16px;
+            border: 1px solid var(--border-light); margin-bottom: 20px;
+            display: flex; gap: 30px; align-items: center;
+        }
+        .tab-item h3 { margin-top: 0; color: var(--accent); font-size: 1.2rem; }
+
+        @media (max-width: 768px) {
+            .content-split, .tab-item { flex-direction: column; }
+            .image-section { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Alur Pendaftaran & Panduan Ascend HR</h1>
+            <p>Ikuti langkah-langkah di bawah ini secara berurutan.</p>
+        </header>
+
+        <div class="card">
+            <div class="card-header">
+                <h2><span class="step-number">1</span> Halaman Awal & Mulai Mendaftar</h2>
+            </div>
+            <div class="content-split">
+                <div class="image-section">
+                    <div class="img-wrapper">
+                        <img src="login.jpeg" alt="Halaman Login">
+                        <div class="hotspot" style="top: 73%; left: 50%;">
+                            <div class="pulse-dot"></div>
+                            <div class="pointer-label">Klik Daftar Sekarang</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-section">
+                    <ul>
+                        <li>Saat pertama kali membuka aplikasi, Anda akan dihadapkan pada halaman Login dari Inti Berkat Jaya Group.</li>
+                        <li>Bagi Anda yang sudah memiliki akun dan di-ACC, bisa langsung memasukkan <strong>Email</strong> dan <strong>Password</strong>.</li>
+                        <li>Namun, bagi karyawan baru yang belum memiliki akun, abaikan kolom login dan langsung klik teks <strong>"Daftar sekarang"</strong> di bagian paling bawah layar.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2><span class="step-number">2</span> Pengisian Form Registrasi</h2>
+            </div>
+            <div class="content-split">
+                <div class="image-section">
+                    <div class="img-wrapper">
+                        <img src="daftar.jpeg" alt="Halaman Daftar">
+                        <div class="hotspot" style="top: 25%; left: 10%;">
+                            <div class="pulse-dot"></div>
+                            <div class="pointer-label">Pilih Grup & Posisi</div>
+                        </div>
+                        <div class="hotspot" style="top: 88%; left: 25%;">
+                            <div class="pulse-dot"></div>
+                            <div class="pointer-label">Klik Daftar Sekarang</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-section">
+                    <ul>
+                        <li>Setelah klik daftar, Anda akan diarahkan ke form registrasi akun. Isi semua kolom dengan benar.</li>
+                        <li><strong>Data Dasar:</strong> Masukkan Nama Lengkap dan Nomor WhatsApp aktif.</li>
+                        <li><strong>Penempatan:</strong> Pilih Grup Perusahaan (misal: IBJ Group), Departemen divisi kerja (misal: IT), dan Posisi/Level Anda (misal: Officer).</li>
+                        <li><strong>Akses Login:</strong> Masukkan Email pribadi/perusahaan dan buat Password yang aman.</li>
+                        <li>Setelah semua terisi, klik tombol hitam <strong>Daftar Sekarang</strong>.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2><span class="step-number">3</span> Lengkapi Data Karyawan (Dossier)</h2>
+            </div>
+            <div class="content-split">
+                <div class="image-section">
+                    <div class="img-wrapper">
+                        <img src="lengkapi data.jpeg" alt="Header Lengkapi Data">
+                        <div class="hotspot" style="top: 85%; left: 35%;">
+                            <div class="pulse-dot"></div>
+                            <div class="pointer-label">Unggah Foto (Maks 5MB)</div>
+                        </div>
+                    </div>
+                    <div class="img-wrapper">
+                        <img src="info pribadi.jpeg" alt="Form Info Pribadi">
+                        <div class="hotspot" style="top: 88%; left: 25%;">
+                            <div class="pulse-dot"></div>
+                            <div class="pointer-label">Lanjut ke Pendidikan</div>
+                        </div>
+                    </div>
+                    <div class="img-wrapper">
+                        <img src="status pendidikan.jpeg" alt="Form Pendidikan">
+                        <div class="hotspot" style="top: 88%; left: 25%;">
+                            <div class="pulse-dot"></div>
+                            <div class="pointer-label">Lanjut ke Alamat & Kontak</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-section">
+                    <p style="color: var(--text-muted); margin-top: 0;">Sesaat setelah berhasil mendaftar, Anda wajib melengkapi biodata. Data tersimpan otomatis di setiap kolom (Draft Aman).</p>
+                    <ul>
+                        <li><strong>Identitas & Foto:</strong> Unggah pas foto wajah yang jelas dengan ukuran maksimal 5 MB.</li>
+                        <li><strong>Info Pribadi:</strong> Masukkan Email, ketik Nama Lengkap (harus sesuai dengan KTP), pilih Jenis Kelamin, dan pastikan Nomor WA Aktif benar. Lengkapi juga Tempat serta Tanggal Lahir Anda. Lalu klik tombol <strong>Lanjut ke Pendidikan</strong>.</li>
+                        <li><strong>Pendidikan:</strong> Masukkan Nama Institusi/Universitas/Sekolah tempat Anda belajar. Pilih tingkat Pendidikan Terakhir, dan masukkan Nilai Terakhir (bersifat Opsional).</li>
+                        <li><strong>Status Sosial:</strong> Pilih Agama, Golongan Darah, dan Status Pernikahan Anda saat ini.</li>
+                        <li>Setelah selesai di halaman pendidikan, klik tombol <strong>Lanjut ke Alamat & Kontak</strong> untuk menyelesaikan form.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2><span class="step-number">4</span> Profil Sedang Direview (Verifikasi)</h2>
+            </div>
+            <div class="content-split">
+                <div class="image-section">
+                    <div class="img-wrapper">
+                        <img src="verifikasi.jpeg" alt="Halaman Verifikasi">
+                    </div>
+                </div>
+                <div class="text-section">
+                    <ul>
+                        <li>Setelah seluruh rentetan data (Info Pribadi, Pendidikan, hingga Alamat) selesai diisi, layar akan otomatis menampilkan status <strong>Profil Sedang Direview</strong>.</li>
+                        <li>Ini berarti akun baru Anda belum bisa langsung digunakan. Data sedang dalam proses pengecekan dan verifikasi silang oleh Admin Pusat / HRD.</li>
+                        <li>Anda bisa menekan <strong>Keluar Sementara</strong> dan menutup aplikasi sambil menunggu status di-ACC.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2><span class="step-number">5</span> Panduan Fitur di Dalam Aplikasi</h2>
+            </div>
+            <p style="margin-top:0; color: var(--text-muted);">Jika akun sudah diverifikasi, Anda dapat login dan mengakses menu-menu portal enterprise berikut:</p>
+
+            <div class="tab-item">
+                <div class="image-section" style="min-width: 250px;">
+                    <div class="img-wrapper">
+                        <img src="dashboard.jpg" alt="Dashboard Enterprise Portal">
+                        <div class="hotspot" style="top: 82%; left: 80%;">
+                            <div class="pulse-dot"></div>
+                            <div class="pointer-label">Akses Profil Lengkap</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-section">
+                    <h3>1. Dashboard & Analytics (Eksplor)</h3>
+                    <p>Ini adalah tampilan <strong>Enterprise Portal</strong> utama Anda. Di halaman ini, Anda dapat memantau secara real-time:</p>
+                    <ul>
+                        <li><strong>Analytics & Overview:</strong> Melihat metrik produktivitas harian, seperti Antrean Dokumen, Agenda Aktif, pencapaian OKR, hingga Tiket IT yang sedang diproses.</li>
+                        <li><strong>Grafik Penyelesaian Tugas:</strong> Memantau persentase penyelesaian urusan E-Filing maupun resolusi kendala IT Anda.</li>
+                        <li><strong>Indikator Performa:</strong> Rangkuman status Anda sebagai karyawan (misal: <em>On Track</em>), riwayat sertifikat, riwayat promosi, hingga status teguran.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tab-item">
+                <div class="image-section" style="min-width: 250px;">
+                    <div class="img-wrapper"><img src="event.jpeg" alt="Event"></div>
+                </div>
+                <div class="text-section">
+                    <h3>2. Agenda (Ikon Kalender)</h3>
+                    <p>Merupakan pusat informasi kegiatan perusahaan. Terdiri dari 3 tab:</p>
+                    <ul>
+                        <li><strong>Event Available:</strong> Acara atau pelatihan yang terbuka.</li>
+                        <li><strong>Event Attended:</strong> Acara yang sedang Anda ikuti.</li>
+                        <li><strong>Event History:</strong> Riwayat acara yang sudah berlalu.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tab-item">
+                <div class="image-section" style="min-width: 250px;">
+                    <div class="img-wrapper"><img src="trello.jpeg" alt="Tugas"></div>
+                </div>
+                <div class="text-section">
+                    <h3>3. Kerja (Ikon Papan Kanban)</h3>
+                    <p>Fitur koordinasi kerja. Anda dapat menambahkan rincian tugas mandiri di kolom <strong>To Do</strong> dan berkoordinasi dengan tim/divisi lain.</p>
+                </div>
+            </div>
+
+            <div class="tab-item">
+                <div class="image-section" style="min-width: 250px;">
+                    <div class="img-wrapper"><img src="penerimaan dokumen dari hr.jpeg" alt="File"></div>
+                </div>
+                <div class="text-section">
+                    <h3>4. File (Ikon Dokumen)</h3>
+                    <p>Ini adalah ruang brankas digital Anda (<strong>E-Filing & Dokumen Legal</strong>). Tempat untuk melihat atau mengunduh ulang dokumen resmi yang dikirimkan oleh HRD, seperti kontrak kerja.</p>
+                </div>
+            </div>
+
+            <div class="tab-item">
+                <div class="image-section" style="min-width: 250px;">
+                    <div class="img-wrapper"><img src="event yang diikuti dan bisa download sertifikat disini.jpeg" alt="Sertifikat"></div>
+                    <div class="img-wrapper" style="margin-top: 15px;"><img src="profil dan okr.jpeg" alt="Profil"></div>
+                </div>
+                <div class="text-section">
+                    <h3>5. Profil (Ikon Orang)</h3>
+                    <p>Pusat kendali akun Anda. Di dalam menu profil ini, Anda dapat:</p>
+                    <ul>
+                        <li><strong>Koleksi Piagam:</strong> Mengunduh (download) sertifikat dari pelatihan yang berhasil Anda selesaikan.</li>
+                        <li><strong>Dossier Karyawan:</strong> Melihat dan mengedit kembali Data Diri.</li>
+                        <li><strong>OKR & Target Kinerja:</strong> Memantau pencapaian objektif Anda bulan ini.</li>
+                        <li><strong>Aset IT:</strong> Melihat daftar inventaris laptop/perangkat yang Anda pinjam, serta fitur Helpdesk IT untuk laporan masalah teknis.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
